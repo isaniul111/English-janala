@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English Janala</title>
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awsome link integrate  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- tailwind + daisyUI  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- link css file  -->
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar bg-base-100 shadow-sm justify-between bg-cyan-200">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+              <li>
+                <a href="" class="text-xs"><i class="fa-solid fa-circle-question"></i>FAQ</a>
+              </li>
+              <li>
+                <a class="text-xs"><i class="fa-solid fa-book-open"></i>Learn</a>
+              </li>
+              <li>
+                <a class="text-xs"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+              </li>
+            </ul>
+          </div>
+          <a class="font-bold gap-1">English</a>
+          <img class="mx-1 items-center" src="assets/logo.png" alt="" />
+          <h3 class="font-bangla font-medium">জানালা</h3>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 space-x-3">
+            <li>
+              <a href="" class="btn btn-outline btn-primary text-xs"><i class="fa-solid fa-circle-question"></i>FAQ</a>
+            </li>
+            <li>
+              <a class="btn btn-outline btn-primary text-xs"><i class="fa-solid fa-book-open"></i>Learn</a>
+            </li>
+            <li>
+              <a class="btn btn-outline btn-primary text-xs"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section class="flex mx-auto sm:flex-row flex-col-reverse items-center justify-between pt-8 mb-48">
+      <div class="contant flex-1 mx-8 text-center sm:text-left">
+        <h3 class="text-5xl font-bold mb-4"><span class="text-sky-300">English</span> is Easy!!</h3>
+        <p class="font-bangla text-xl font-medium">
+          আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive
+          Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+        </p>
+        <fieldset class="space-y-2 mt-4">
+          <input type="text" class="input w-max-[320px]" placeholder="Enter Your Name" /><br>
+          <input type="password" class="input w-max-[320px]" placeholder="Password" /><br>
+
+          <button class="btn btn-primary py-2 px-8">Login</button>
+        </fieldset>
+      </div>
+      <div class="image flex-1 mx-8">
+        <img src="./assets/hero-student.png" alt="" />
+      </div>
+    </section>
+  </body>
+</html>
