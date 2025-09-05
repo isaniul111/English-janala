@@ -108,4 +108,19 @@ const manageSpinner=(status)=>{
     document.getElementById('word-container').classList.remove('hidden');
   }
 }
+
+// document.getElementById('search-btn').addEventListener('click',()=>{
+//   const input=document.getElementById('search-input');
+//   const searchValue= input.value.trim().toLowerCase();
+  
+//   fetch("https://openapi.programming-hero.com/api/levels/all")
+//   .then(res=>res.json()).then(data=>{
+//     const allWords=data.data;
+//     // console.log(allWords);
+//     const filerWords=allWords.filter(word=>
+//       word.word.toLowerCase().includes(searchValue)
+//     );
+//     console.log(filerWords);
+//   });
+// });
 loadData();
