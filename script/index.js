@@ -4,12 +4,20 @@ const loadData=()=>{
     .then(leasons=>readData(leasons.data));
 }
 const levelData=(id)=>{
+    manageSpinner(true);
     let url=`https://openapi.programming-hero.com/api/level/${id}`;
     fetch(url).then(res=>res.json()).then(data=>{
+        removeActive();
         const clickBtn=document.getElementById(`lession-btn-${id}`);
         // console.log(clickBtn); 
         clickBtn.classList.add('active');
         displayLevelData(data.data)});
+}
+const removeActive=()=>{
+  const lessionsButtion=document.querySelectorAll('.lession-btn');
+  lessionsButtion.forEach(btn=>{
+    btn.classList.remove('active');
+  });
 }
 const displayLevelData=(data)=>{
     const wordContainer=document.getElementById('word-container');
@@ -37,14 +45,28 @@ const displayLevelData=(data)=>{
       </div>
         `;
         wordContainer.appendChild(card);
+        manageSpinner(false);
     });
 }
+
+const readData=(leason)=>{
+    const btnParent=document.getElementById('btn-container');
+    btnParent.innerHTML="";
+    leason.forEach(element=> {
+       let btnLesson=document.createElement('button');
+       btnLesson.innerHTML=`
+                <button id="lession-btn-${element.level_no}" onclick="levelData(${element.level_no})" class="lession-btn btn btn-outline btn-primary text-xs"><i class="fa-solid fa-book-open"></i>Lesson-${element.level_no}</button>
+       `;
+       btnParent.appendChild(btnLesson);
+    });
+}
+
 const boxModal=(id)=>{
-    const modelBox=document.getElementById("modal-container");
-    let boxInModal=document.createElement('div');
     const url=`https://openapi.programming-hero.com/api/word/${id}`;
     fetch(url).then(res=>res.json()).then(combine=>{
-        // console.log(combine.data.word);
+        const modelBox=document.getElementById("modal-container");
+        const boxInModal=document.createElement('div');
+        modelBox.innerHTML = "";
         boxInModal.innerHTML=`
              <h2 class="text-2xl font-bold">${combine.data.word}(<i class="fa-solid fa-microphone-lines"></i>:${combine.data.pronunciation})</h2>
           <div>
@@ -57,7 +79,7 @@ const boxModal=(id)=>{
           </div>
            <div>
             <h3 class="text-lg font-bold">সমার্থক শব্দ গুলো</h3>
-            <p class="py-4">many</p>
+            <div class="synonym">${synonymsMethod(combine.data.synonyms)}</div>
           </div>
           <div class="modal-action">
             <form method="dialog">
@@ -66,19 +88,24 @@ const boxModal=(id)=>{
             </form>
           </div>
         `;
-    });
-    modelBox.appendChild(boxInModal);
-    my_modal.showModal();
+        modelBox.appendChild(boxInModal);
+        my_modal.showModal();
+      });
 }
-const readData=(leason)=>{
-    const btnParent=document.getElementById('btn-container');
-    btnParent.innerHTML="";
-    leason.forEach(element=> {
-       let btnLesson=document.createElement('button');
-       btnLesson.innerHTML=`
-                <button id="lession-btn-${element.level_no}" onclick="levelData(${element.level_no})" class="btn btn-outline btn-primary text-xs"><i class="fa-solid fa-book-open"></i>Lesson-${element.level_no}</button>
-       `;
-       btnParent.appendChild(btnLesson);
-    });
+
+const synonymsMethod=(synonyms)=>{
+  const sentanceSynonyms=synonyms.map(el=>`<span class="btn">${el}</span>`);
+  return sentanceSynonyms.join(' ');
+}
+
+const manageSpinner=(status)=>{
+  if(status==true){
+    document.getElementById('spinner').classList.remove('hidden');
+    document.getElementById('word-container').classList.add('hidden');
+  }
+  else{
+    document.getElementById('spinner').classList.add('hidden');
+    document.getElementById('word-container').classList.remove('hidden');
+  }
 }
 loadData();
